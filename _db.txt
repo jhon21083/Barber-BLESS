@@ -1,0 +1,2 @@
+﻿ php artisan migrate --no-interaction; php artisan db:seed --no-interaction; 
+php artisan route:list 

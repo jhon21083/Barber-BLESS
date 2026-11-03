@@ -1,0 +1,10 @@
+﻿C:\laragon\bin\nodejs\node-v18\node_modules\corepack\shims\nodewin\npm
+C:\laragon\bin\nodejs\node-v18\node_modules\corepack\shims\nodewin\npm.cmd
+C:\laragon\bin\nodejs\node-v18\node_modules\corepack\shims\npm
+C:\laragon\bin\nodejs\node-v18\node_modules\corepack\shims\npm.cmd
+C:\laragon\bin\nodejs\node-v18\node_modules\npm
+C:\laragon\bin\nodejs\node-v18\node_modules\npm\bin\npm
+C:\laragon\bin\nodejs\node-v18\node_modules\npm\bin\npm.cmd
+C:\laragon\bin\nodejs\node-v18\node.exe
+C:\laragon\bin\nodejs\node-v18\npm
+C:\laragon\bin\nodejs\node-v18\npm.cmd

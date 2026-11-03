@@ -1,0 +1,6 @@
+﻿C:\Program Files\nodejs\node.exe = False
+C:\Program Files\nodejs\npm.cmd = False
+C:\laragon\bin\node\node.exe = False
+C:\laragon\bin\node = False
+C:\laragon\bin\nodejs\node.exe = False
+C:\Users\WINDOWS 11 PRO 25H2\AppData\Roaming\npm\npm.cmd = False

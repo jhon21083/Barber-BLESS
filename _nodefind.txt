@@ -1,0 +1,8 @@
+﻿ Write-Output "where node:"; Get-Command node -ErrorAction SilentlyContinue | 
+Select-Object -ExpandProperty Source; Write-Output "where npm:"; Get-Command 
+npm -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source; 
+Write-Output "node in PATH?"; $env:Path -split ';' | Where-Object { $_ -match 
+'node|laragon' }; Write-Output "Standard locations:"; Test-Path 'C:\Program 
+Files\nodejs\npm.cmd'; Test-Path 'C:\Program Files\nodejs\node.exe'; Test-Path 
+'C:\laragon\bin\node'; Get-ChildItem 'C:\Program Files\nodejs' -ErrorAction 
+SilentlyContinue | Select-Object -ExpandProperty Name 

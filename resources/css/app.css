@@ -1,0 +1,163 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-navy: #0a0f1e;
+    --color-navy-800: #0d1526;
+    --color-navy-700: #111c33;
+    --color-cyan-glow: #00d4ff;
+    --color-cyan: #00bcd4;
+    --color-blue-electric: #0096ff;
+}
+
+@layer components {
+    /* Primary gradient button with cyan glow */
+    .btn-cyan {
+        background: linear-gradient(135deg, #00d4ff, #0096ff);
+        color: #04121f;
+        font-weight: 700;
+        padding: 0.7rem 1.6rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 0 18px rgba(0, 212, 255, 0.45);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        border: none;
+    }
+
+    .btn-cyan:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.08);
+        box-shadow: 0 0 26px rgba(0, 212, 255, 0.65);
+    }
+
+    /* Outline button with cyan border that fills subtly on hover */
+    .btn-outline {
+        background: transparent;
+        color: #00d4ff;
+        font-weight: 700;
+        padding: 0.7rem 1.6rem;
+        border-radius: 0.75rem;
+        border: 1px solid #00d4ff;
+        transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        cursor: pointer;
+    }
+
+    .btn-outline:hover {
+        background: rgba(0, 212, 255, 0.12);
+        transform: translateY(-2px);
+    }
+
+    /* Semi-transparent dark card with a subtle cyan border */
+    .card-dark {
+        background: rgba(13, 21, 38, 0.7);
+        border: 1px solid rgba(0, 212, 255, 0.18);
+        border-radius: 1rem;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Dark form input that glows cyan on focus */
+    .input-dark {
+        background: rgba(10, 15, 30, 0.8);
+        border: 1px solid rgba(0, 212, 255, 0.25);
+        color: #fff;
+        padding: 0.7rem 1rem;
+        border-radius: 0.6rem;
+        width: 100%;
+        transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .input-dark::placeholder {
+        color: rgba(148, 163, 184, 0.55);
+    }
+
+    .input-dark:focus {
+        outline: none;
+        border-color: #00d4ff;
+        box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+    }
+
+    /* Cyan text glow */
+    .glow-cyan {
+        text-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+    }
+
+    /* Small rounded uppercase pill badge */
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.28rem 0.7rem;
+        border-radius: 9999px;
+        background: rgba(0, 212, 255, 0.12);
+        color: #00d4ff;
+        border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+
+    /* Section divider with a soft cyan gradient line */
+    .gradient-divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+    }
+}
+
+/* Light theme override (best-effort, dark-first) toggled via .theme-light on <html> */
+.theme-light body {
+    background: #eef3fb !important;
+    color: #0a0f1e;
+}
+
+.theme-light .card-dark {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 150, 255, 0.25);
+    color: #0a0f1e;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.theme-light .input-dark {
+    background: #ffffff;
+    color: #0a0f1e;
+    border-color: rgba(0, 150, 255, 0.3);
+}
+
+.theme-light .input-dark::placeholder {
+    color: rgba(80, 100, 130, 0.55);
+}
+
+/* ── Galería de cortes ── */
+.corte-filter-btn {
+    transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.active-corte-filter {
+    background: linear-gradient(135deg, #00d4ff, #0096ff);
+    color: #04121f;
+    box-shadow: 0 0 14px rgba(0, 212, 255, 0.4);
+}
+
+.corte-card {
+    transition: transform 0.2s ease, opacity 0.25s ease, border-color 0.2s ease;
+}
+
+.corte-card.hidden-card {
+    display: none;
+}

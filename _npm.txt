@@ -1,0 +1,83 @@
+npm ERR! code 1
+npm ERR! path C:\laragon\sistema-registro\sistema-barberia\node_modules\esbuild
+npm ERR! command failed
+npm ERR! command C:\WINDOWS\system32\cmd.exe /d /s /c node install.js
+npm ERR! node:internal/errors:863
+npm ERR!   const err = new Error(message);
+npm ERR!               ^
+npm ERR! 
+npm ERR! Error: Command failed: C:\laragon\bin\nodejs\node-v18\node.exe C:\laragon\sistema-registro\sistema-barberia\node_modules\esbuild\bin\esbuild --version
+npm ERR! node:child_process:910
+npm ERR!     throw err;
+npm ERR!     ^
+npm ERR! 
+npm ERR! <ref *1> Error: spawnSync C:\laragon\sistema-registro\sistema-barberia\node_modules\@esbuild\win32-x64\esbuild.exe UNKNOWN
+npm ERR!     at Object.spawnSync (node:internal/child_process:1110:20)
+npm ERR!     at spawnSync (node:child_process:857:24)
+npm ERR!     at Object.execFileSync (node:child_process:900:15)
+npm ERR!     at Object.<anonymous> (C:\laragon\sistema-registro\sistema-barberia\node_modules\esbuild\bin\esbuild:222:28)
+npm ERR!     at Module._compile (node:internal/modules/cjs/loader:1119:14)
+npm ERR!     at Module._extensions..js (node:internal/modules/cjs/loader:1173:10)
+npm ERR!     at Module.load (node:internal/modules/cjs/loader:997:32)
+npm ERR!     at Module._load (node:internal/modules/cjs/loader:838:12)
+npm ERR!     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+npm ERR!     at node:internal/main/run_main_module:18:47 {
+npm ERR!   errno: -4094,
+npm ERR!   code: 'UNKNOWN',
+npm ERR!   syscall: 'spawnSync C:\\laragon\\sistema-registro\\sistema-barberia\\node_modules\\@esbuild\\win32-x64\\esbuild.exe',
+npm ERR!   path: 'C:\\laragon\\sistema-registro\\sistema-barberia\\node_modules\\@esbuild\\win32-x64\\esbuild.exe',
+npm ERR!   spawnargs: [ '--version' ],
+npm ERR!   error: [Circular *1],
+npm ERR!   status: null,
+npm ERR!   signal: null,
+npm ERR!   output: null,
+npm ERR!   pid: 0,
+npm ERR!   stdout: null,
+npm ERR!   stderr: null
+npm ERR! }
+npm ERR! 
+npm ERR! Node.js v18.8.0
+npm ERR! 
+npm ERR!     at checkExecSyncError (node:child_process:871:11)
+npm ERR!     at Object.execFileSync (node:child_process:907:15)
+npm ERR!     at validateBinaryVersion (C:\laragon\sistema-registro\sistema-barberia\node_modules\esbuild\install.js:103:28)
+npm ERR!     at C:\laragon\sistema-registro\sistema-barberia\node_modules\esbuild\install.js:296:5 {
+npm ERR!   status: 1,
+npm ERR!   signal: null,
+npm ERR!   output: [
+npm ERR!     null,
+npm ERR!     Buffer(0) [Uint8Array] [],
+npm ERR!     Buffer(1299) [Uint8Array] [
+npm ERR!       110, 111, 100, 101,  58,  99, 104, 105, 108, 100,  95, 112,
+npm ERR!       114, 111,  99, 101, 115, 115,  58,  57,  49,  48,  13,  10,
+npm ERR!        32,  32,  32,  32, 116, 104, 114, 111, 119,  32, 101, 114,
+npm ERR!       114,  59,  13,  10,  32,  32,  32,  32,  94,  13,  10,  13,
+npm ERR!        10,  60, 114, 101, 102,  32,  42,  49,  62,  32,  69, 114,
+npm ERR!       114, 111, 114,  58,  32, 115, 112,  97, 119, 110,  83, 121,
+npm ERR!       110,  99,  32,  67,  58,  92, 108,  97, 114,  97, 103, 111,
+npm ERR!       110,  92, 115, 105, 115, 116, 101, 109,  97,  45, 114, 101,
+npm ERR!       103, 105, 115, 116,
+npm ERR!       ... 1199 more items
+npm ERR!     ]
+npm ERR!   ],
+npm ERR!   pid: 1656,
+npm ERR!   stdout: Buffer(0) [Uint8Array] [],
+npm ERR!   stderr: Buffer(1299) [Uint8Array] [
+npm ERR!     110, 111, 100, 101,  58,  99, 104, 105, 108, 100,  95, 112,
+npm ERR!     114, 111,  99, 101, 115, 115,  58,  57,  49,  48,  13,  10,
+npm ERR!      32,  32,  32,  32, 116, 104, 114, 111, 119,  32, 101, 114,
+npm ERR!     114,  59,  13,  10,  32,  32,  32,  32,  94,  13,  10,  13,
+npm ERR!      10,  60, 114, 101, 102,  32,  42,  49,  62,  32,  69, 114,
+npm ERR!     114, 111, 114,  58,  32, 115, 112,  97, 119, 110,  83, 121,
+npm ERR!     110,  99,  32,  67,  58,  92, 108,  97, 114,  97, 103, 111,
+npm ERR!     110,  92, 115, 105, 115, 116, 101, 109,  97,  45, 114, 101,
+npm ERR!     103, 105, 115, 116,
+npm ERR!     ... 1199 more items
+npm ERR!   ]
+npm ERR! }
+npm ERR! 
+npm ERR! Node.js v18.8.0
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\WINDOWS 11 PRO 25H2\AppData\Local\npm-cache\_logs\2026-10-28T22_11_47_023Z-debug-0.log
+EXIT=0 

@@ -1,0 +1,19 @@
+
+> build
+> vite build
+
+node:internal/modules/cjs/loader:958
+  throw err;
+  ^
+
+Error: Cannot find module 'c:\laragon\sistema-registro\sistema-barberia\node_modules\vite\bin\vite.js'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:955:15)
+    at Module._load (node:internal/modules/cjs/loader:803:27)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:18:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v18.8.0
+BUILD_EXIT=1 

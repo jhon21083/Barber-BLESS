@@ -1,0 +1,6 @@
+﻿No syntax errors detected in app/Http/Controllers/LandingController.php
+No syntax errors detected in app/Http/Controllers/AuthController.php
+No syntax errors detected in app/Http/Controllers/DashboardController.php
+No syntax errors detected in routes/web.php
+No syntax errors detected in database/seeders/AdminUserSeeder.php
+No syntax errors detected in database/seeders/DatabaseSeeder.php

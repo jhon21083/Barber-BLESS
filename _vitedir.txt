@@ -1,0 +1,10 @@
+ El volumen de la unidad C no tiene etiqueta.
+ El número de serie del volumen es: 1C6C-3AF1
+
+ Directorio de C:\laragon\sistema-registro\sistema-barberia\node_modules\vite
+
+28/10/2026  18:11    <DIR>          .
+28/10/2026  18:12    <DIR>          ..
+28/10/2026  18:11    <DIR>          dist
+               0 archivos              0 bytes
+               3 dirs  240.955.179.008 bytes libres
