@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Barbero;
 use App\Models\Reserva;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
 class AdminBarberoController extends Controller
@@ -76,11 +78,14 @@ class AdminBarberoController extends Controller
     }
 
     /**
-     * Store a new barber.
+     * Store a new barber — returns JSON when called via fetch (AJAX).
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request): RedirectResponse|JsonResponse
     {
-        $validated = $request->validate([
+        $isAjax = $request->expectsJson() || $request->ajax();
+
+        // Validar manualmente para devolver JSON en caso de error AJAX
+        $validator = Validator::make($request->all(), [
             'nombre' => ['required', 'string', 'max:100'],
             'rol' => ['nullable', 'string', 'max:100'],
             'especialidad' => ['nullable', 'string', 'max:200'],
@@ -88,14 +93,47 @@ class AdminBarberoController extends Controller
             'telefono' => ['nullable', 'string', 'max:30'],
         ]);
 
-        Barbero::create(array_merge($validated, [
+        if ($validator->fails()) {
+            if ($isAjax) {
+                return response()->json([
+                    'success' => false,
+                    'mensaje' => $validator->errors()->first(),
+                    'errors' => $validator->errors()->toArray(),
+                ], 422);
+            }
+
+            return back()->withErrors($validator)->withInput();
+        }
+
+        $validated = $validator->validated();
+
+        $barbero = Barbero::create(array_merge($validated, [
             'estado' => 'Disponible',
             'rating' => 5.0,
             'resenas' => 0,
             'activo' => true,
         ]));
 
-        return back()->with('success_barbero', "Barbero {$validated['nombre']} agregado correctamente.");
+        if ($isAjax) {
+            return response()->json([
+                'success' => true,
+                'mensaje' => "Barbero {$barbero->nombre} agregado correctamente.",
+                'barbero' => [
+                    'id' => $barbero->id,
+                    'nombre' => $barbero->nombre,
+                    'rol' => $barbero->rol ?? 'Barbero',
+                    'especialidad' => $barbero->especialidad ?? '',
+                    'estado' => $barbero->estado,
+                    'rating' => number_format((float) $barbero->rating, 1),
+                    'horario' => $barbero->horario ?? '09:00 AM - 06:00 PM',
+                    'telefono' => $barbero->telefono ?? '',
+                    'cortes_hoy' => 0,
+                    'total_cortes' => 0,
+                ],
+            ]);
+        }
+
+        return back()->with('success_barbero', "Barbero {$barbero->nombre} agregado correctamente.");
     }
 
     /**

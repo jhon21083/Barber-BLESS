@@ -15,7 +15,7 @@ test('landing page contains all navigation sections', function () {
 
     $response->assertStatus(200)
         ->assertSee('id="destacados"', false)
-        ->assertSee('id="servicios"', false)
+        ->assertSee('id="galeria-cortes"', false)
         ->assertSee('id="folio"', false)
         ->assertSee('id="barberos"', false)
         ->assertSee('id="como-funciona"', false)

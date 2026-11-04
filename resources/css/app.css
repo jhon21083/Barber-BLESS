@@ -161,3 +161,59 @@
 .corte-card.hidden-card {
     display: none;
 }
+
+/* ── Modal de reserva: scroll interno ── */
+
+/* Scrollbar personalizada para el cuerpo del modal */
+#booking-modal .overflow-y-auto {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
+}
+
+#booking-modal .overflow-y-auto::-webkit-scrollbar {
+    width: 5px;
+}
+
+#booking-modal .overflow-y-auto::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#booking-modal .overflow-y-auto::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.3);
+    border-radius: 9999px;
+}
+
+#booking-modal .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 212, 255, 0.55);
+}
+
+/* En móvil: las dos columnas se apilan y cada una scrollea
+   con el contenedor padre */
+@media (max-width: 1023px) {
+    #booking-modal .grid > div {
+        overflow-y: visible !important;
+    }
+}
+
+/* ── Modal de pago: scroll interno ── */
+.payment-body-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
+}
+
+.payment-body-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.payment-body-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.payment-body-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.3);
+    border-radius: 9999px;
+}
+
+.payment-body-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 212, 255, 0.55);
+}

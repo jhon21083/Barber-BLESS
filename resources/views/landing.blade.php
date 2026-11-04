@@ -28,9 +28,8 @@
             {{-- Desktop links --}}
             <ul class="hidden lg:flex items-center gap-5 text-sm text-slate-300">
                 <li><a href="#destacados" class="hover:text-[#00d4ff] transition-colors">Destacados</a></li>
-                <li><a href="#servicios" class="hover:text-[#00d4ff] transition-colors">Servicios &amp; Cortes</a></li>
+                <li><a href="#galeria-cortes" class="hover:text-[#00d4ff] transition-colors">Servicios &amp; Cortes</a></li>
                 <li><a href="#folio" class="hover:text-[#00d4ff] transition-colors">Consultar Cita/Folio</a></li>
-                <li><a href="#galeria-cortes" class="hover:text-[#00d4ff] transition-colors">Galería</a></li>
                 <li><a href="#barberos" class="hover:text-[#00d4ff] transition-colors">Maestros Barberos</a></li>
                 <li><a href="{{ route('login') }}" class="hover:text-[#00d4ff] transition-colors">Administración</a></li>                <li><a href="#como-funciona" class="hover:text-[#00d4ff] transition-colors">¿Cómo Funciona?</a></li>
                 <li><a href="#ayuda" class="hover:text-[#00d4ff] transition-colors">Ayuda</a></li>
@@ -59,9 +58,8 @@
         <div id="nav-mobile-menu" class="hidden lg:hidden border-t border-[#00d4ff]/10 bg-[#080d19]/95 backdrop-blur">
             <ul class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1 text-sm text-slate-300">
                 <li><a href="#destacados" class="nav-mobile-link block py-2.5 px-3 rounded-lg hover:bg-[#00d4ff]/10 hover:text-[#00d4ff] transition-colors">⭐ Destacados</a></li>
-                <li><a href="#servicios" class="nav-mobile-link block py-2.5 px-3 rounded-lg hover:bg-[#00d4ff]/10 hover:text-[#00d4ff] transition-colors">✂ Servicios &amp; Cortes</a></li>
+                <li><a href="#galeria-cortes" class="nav-mobile-link block py-2.5 px-3 rounded-lg hover:bg-[#00d4ff]/10 hover:text-[#00d4ff] transition-colors">✂ Servicios &amp; Cortes</a></li>
                 <li><a href="#folio" class="nav-mobile-link block py-2.5 px-3 rounded-lg hover:bg-[#00d4ff]/10 hover:text-[#00d4ff] transition-colors">🔍 Consultar Cita/Folio</a></li>
-                <li><a href="#galeria-cortes" class="nav-mobile-link block py-2.5 px-3 rounded-lg hover:bg-[#00d4ff]/10 hover:text-[#00d4ff] transition-colors">🖼 Galería de Cortes</a></li>
                 <li><a href="#barberos" class="nav-mobile-link block py-2.5 px-3 rounded-lg hover:bg-[#00d4ff]/10 hover:text-[#00d4ff] transition-colors">👤 Maestros Barberos</a></li>
                 <li><a href="{{ route('login') }}" class="nav-mobile-link block py-2.5 px-3 rounded-lg hover:bg-[#00d4ff]/10 hover:text-[#00d4ff] transition-colors">🔐 Administración</a></li>
                 <li><a href="#como-funciona" class="nav-mobile-link block py-2.5 px-3 rounded-lg hover:bg-[#00d4ff]/10 hover:text-[#00d4ff] transition-colors">❓ ¿Cómo Funciona?</a></li>
@@ -329,7 +327,7 @@
     </section>
 
     {{-- ===================== SERVICIOS & GALERÍA DE CORTES ===================== --}}
-    <section class="py-20 bg-[#0a0f1e] border-t border-[#00d4ff]/15" id="galeria-cortes">
+    <section class="py-20 bg-[#0a0f1e] border-t border-[#00d4ff]/15" id="galeria-cortes" data-section-id="servicios">
         <div class="max-w-7xl mx-auto px-4">
 
             {{-- Header --}}
@@ -865,11 +863,13 @@
     {{-- ===================== BOOKING MODAL ===================== --}}
     <div id="booking-modal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="booking-title">
         <div id="booking-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-        <div class="relative flex items-start justify-center min-h-screen px-2 py-6 overflow-y-auto">
-            <div class="relative w-full max-w-5xl bg-[#0a1428] border border-[#00d4ff]/25 rounded-2xl shadow-[0_0_60px_rgba(0,212,255,0.12)] overflow-hidden">
+        {{-- Wrapper exterior: permite scroll en pantallas bajas --}}
+        <div class="relative flex items-center justify-center w-full h-full px-2 py-4 overflow-y-auto">
+            <div class="relative w-full max-w-5xl bg-[#0a1428] border border-[#00d4ff]/25 rounded-2xl shadow-[0_0_60px_rgba(0,212,255,0.12)] flex flex-col my-auto"
+                 style="max-height: calc(100dvh - 2rem);">
 
-                {{-- Modal header --}}
-                <div class="flex items-center justify-between px-6 py-5 border-b border-[#00d4ff]/15 bg-[#080d19]">
+                {{-- Modal header — fijo arriba --}}
+                <div class="flex items-center justify-between px-6 py-5 border-b border-[#00d4ff]/15 bg-[#080d19] rounded-t-2xl shrink-0">
                     <div class="flex items-center gap-4">
                         <span class="grid place-items-center w-12 h-12 rounded-xl overflow-hidden shadow-[0_0_18px_rgba(0,212,255,0.45)]">
                             <img src="/images/logo.png" alt="Barber Bless" class="w-full h-full object-cover">
@@ -888,11 +888,11 @@
                     </div>
                 </div>
 
-                {{-- Modal body --}}
-                <div class="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-0">
+                {{-- Modal body — scrollable --}}
+                <div class="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-0 overflow-y-auto flex-1 min-h-0">
 
                     {{-- LEFT: Client form --}}
-                    <div class="px-6 py-6 border-b border-r-0 lg:border-b-0 lg:border-r border-[#00d4ff]/10 space-y-4">
+                    <div class="px-6 py-6 border-b border-r-0 lg:border-b-0 lg:border-r border-[#00d4ff]/10 space-y-4 lg:overflow-y-auto">
 
                         <div>
                             <label class="flex items-center gap-1.5 text-sm font-semibold text-[#00d4ff] mb-2">
@@ -969,7 +969,7 @@
                     </div>
 
                     {{-- RIGHT: Calendar + Time slots --}}
-                    <div class="px-6 py-6 space-y-6">
+                    <div class="px-6 py-6 space-y-6 lg:overflow-y-auto">
 
                         {{-- Calendar section --}}
                         <div class="card-dark p-5">
@@ -1046,11 +1046,12 @@
     {{-- ===================== PAYMENT MODAL ===================== --}}
     <div id="payment-modal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="payment-title">
         <div id="payment-backdrop" class="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
-        <div class="relative flex items-start justify-center min-h-screen px-3 py-8 overflow-y-auto">
-            <div class="relative w-full max-w-lg bg-[#0a1428] border border-[#00d4ff]/25 rounded-2xl shadow-[0_0_60px_rgba(0,212,255,0.14)] overflow-hidden">
+        <div class="relative flex items-center justify-center w-full h-full px-3 py-4 overflow-y-auto">
+            <div class="relative w-full max-w-lg bg-[#0a1428] border border-[#00d4ff]/25 rounded-2xl shadow-[0_0_60px_rgba(0,212,255,0.14)] flex flex-col my-auto"
+                 style="max-height: calc(100dvh - 2rem);">
 
-                {{-- Header del pago --}}
-                <div class="flex items-center justify-between px-5 py-4 border-b border-[#00d4ff]/15 bg-[#080d19]">
+                {{-- Header del pago — fijo arriba --}}
+                <div class="flex items-center justify-between px-5 py-4 border-b border-[#00d4ff]/15 bg-[#080d19] rounded-t-2xl shrink-0">
                     <div class="flex items-center gap-3">
                         <span class="grid place-items-center w-10 h-10 rounded-xl overflow-hidden shadow-[0_0_14px_rgba(0,212,255,0.4)]">
                             <img src="/images/logo.png" alt="Barber Bless" class="w-full h-full object-cover">
@@ -1064,6 +1065,7 @@
                 </div>
 
                 {{-- Resumen de la cita --}}
+                <div class="overflow-y-auto flex-1 min-h-0 payment-body-scroll">
                 <div class="mx-5 mt-5 p-4 rounded-xl bg-[#00d4ff]/8 border border-[#00d4ff]/20">
                     <p class="text-xs font-bold tracking-wider text-[#00d4ff] mb-2">📋 RESUMEN DE CITA</p>
                     <div class="grid grid-cols-2 gap-y-1.5 text-sm">
@@ -1257,6 +1259,7 @@
                         <span>🔒</span> Tu información está protegida · SSL cifrado
                     </p>
                 </div>
+                </div>{{-- /payment-body-scroll --}}
             </div>
         </div>
     </div>
